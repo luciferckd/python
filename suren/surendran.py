@@ -146,3 +146,38 @@ for i in city:
    print(i)
 else:
   print(i*1)
+
+
+# lambda 
+
+def func_build(x):
+    return lambda num : num + x
+
+add = func_build(10)
+add_t = func_build(20)
+
+print(add(7))
+print(add_t(7))
+
+numbers = [3, 4, 5, 6, 7, 8, 20]
+
+square_nums = map(lambda num : num * num, numbers)
+print(list(square_nums))
+
+odd_nums = filter(lambda num : num % 2 !=0, numbers)
+print(list(odd_nums))
+
+from functools import reduce
+
+numb = [1, 3, 5, 7, 8]
+total = reduce(lambda acc, curr : acc + curr, numb)
+print(total)
+print(sum(numb))
+
+names = ['suren', 'kannan', 'massu']
+
+char_count = reduce(lambda acc, cuur : acc + len(cuur), names, 0)
+
+print(char_count)
+
+

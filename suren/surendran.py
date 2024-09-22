@@ -180,4 +180,37 @@ char_count = reduce(lambda acc, cuur : acc + len(cuur), names, 0)
 
 print(char_count)
 
+# three sum closet
+
+def threesum_closet(nums, target):
+    
+    nums.sort()
+    close = float('inf')
+
+    for i in range(len(nums) - 2):
+        if i < 0 and nums[i] == nums[i-1]:
+            continue
+        l, r = i+1, len(nums) - 1
+        
+        while l < r:
+            current_sum = nums[i] + nums[l] + nums[r]
+            
+            if current_sum == target:
+                return current_sum
+                
+            elif abs(current_sum - target) < abs(close - target):
+                close = current_sum
+                
+            if current_sum < target:
+                l += 1
+            else:
+                r -= 1
+                
+    return close
+    
+nums = [-1, 2, 1, -4]
+target = 1
+result = threesum_closest(nums, target)
+print("Closest sum:", result)
+        
 
